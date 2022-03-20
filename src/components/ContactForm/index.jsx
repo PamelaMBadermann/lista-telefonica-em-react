@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 import { FormStyle } from './style';
 
 function ContactForm(props) {
-    const [input, setInput] = useState('');
+    const [input, setInput] = useState(props.edit ? props.edit.value : '');
+
+    const inputRef = useRef(null);
+
+    useEffect(() => {
+        inputRef.current.focus();
+    });
 
     const handleChange = (e) => {
         setInput(e.target.value);
@@ -23,18 +28,37 @@ function ContactForm(props) {
 
     return (
         <FormStyle onSubmit={handleSubmit}>
-            <TextField
-                id="outlined-basic"
-                label="Adicione um contato"
-                variant="outlined"
-                placeholder="Adicione um contato"
-                type="text"
-                name="text"
-                value={input}
-                onChange={handleChange}
-            />
-            {/* <Button variant="contained">Adicione um contato</Button> */}
-            <button>Adicione um contato</button>
+            {props.edit ? (
+                <div>
+                    <TextField
+                        id="outlined-basic"
+                        label="Adicione um contato"
+                        variant="outlined"
+                        placeholder="Edite seu contato"
+                        type="text"
+                        name="text"
+                        value={input}
+                        onChange={handleChange}
+                        ref={inputRef}
+                    />
+                    <button>Adicione um contato</button>
+                </div>
+            ) : (
+                <div>
+                    <TextField
+                        id="outlined-basic"
+                        label="Atualize seu contato"
+                        variant="outlined"
+                        placeholder="Edite seu contato"
+                        type="text"
+                        name="text"
+                        value={input}
+                        onChange={handleChange}
+                        ref={inputRef}
+                    />
+                    <button>Atualize seu contato</button>
+                </div>
+            )}
         </FormStyle>
     );
 }

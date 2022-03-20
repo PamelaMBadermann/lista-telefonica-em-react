@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Grid from '@mui/material/Grid';
+import Contact from '../../components/Contact';
 import ContactForm from '../../components/ContactForm';
 
 function ContactList() {
@@ -18,7 +18,9 @@ function ContactList() {
 
     return (
         <div>
+            <h1>Adicione um contato!</h1>
             <ContactForm onSubmit={addContact}></ContactForm>
+            <Contact contacts={contacts} completeContact={completeContact} />
         </div>
     );
 }

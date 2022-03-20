@@ -25,10 +25,11 @@ function ContactForm(props) {
         <FormStyle onSubmit={handleSubmit}>
             <TextField
                 id="outlined-basic"
-                label="Outlined"
+                label="Adicione um contato"
                 variant="outlined"
                 placeholder="Adicione um contato"
                 type="text"
+                name="text"
                 value={input}
                 onChange={handleChange}
             />

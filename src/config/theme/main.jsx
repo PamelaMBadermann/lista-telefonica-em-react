@@ -8,6 +8,7 @@ export const mainTheme = createTheme({
         },
     },
     typography: {
+        fontFamily: 'Arial',
         h4: {
             color: '#6200ee',
         },

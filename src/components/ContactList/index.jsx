@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Contact from '../../components/Contact';
 import ContactForm from '../../components/ContactForm';
 
+import { useDispatch, useSelector } from 'react-redux';
+
 function ContactList() {
     const [contacts, setContacts] = useState([]);
 
@@ -45,7 +47,6 @@ function ContactList() {
 
     return (
         <div>
-            <h1>Adicione um contato!</h1>
             <ContactForm onSubmit={addContact}></ContactForm>
             <Contact
                 contacts={contacts}

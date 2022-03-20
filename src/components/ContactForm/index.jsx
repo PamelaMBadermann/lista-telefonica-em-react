@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import Box from '@mui/material/Box';
-import { Grid } from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { FormStyle } from './style';
 
 function ContactForm(props) {
     const [input, setInput] = useState('');
@@ -23,26 +22,18 @@ function ContactForm(props) {
     };
 
     return (
-        <Box>
-            <form onSubmit={handleSubmit}>
-                <Grid
-                    container
-                    direction="column"
-                    justifyContent="space-around"
-                    alignItems="center"
-                >
-                    <TextField
-                        id="outlined-basic"
-                        label="Outlined"
-                        variant="outlined"
-                        placeholder="Adicione um contato"
-                        value={input}
-                        onChange={handleChange}
-                    />
-                    <Button variant="contained">Adicione um contato</Button>
-                </Grid>
-            </form>
-        </Box>
+        <FormStyle onSubmit={handleSubmit}>
+            <TextField
+                id="outlined-basic"
+                label="Outlined"
+                variant="outlined"
+                placeholder="Adicione um contato"
+                type="text"
+                value={input}
+                onChange={handleChange}
+            />
+            <Button variant="contained">Adicione um contato</Button>
+        </FormStyle>
     );
 }
 

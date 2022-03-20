@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid, Typography } from '@mui/material';
+import ContactList from '../../components/ContactList';
 
 export const Home = () => {
     return (
@@ -10,7 +11,9 @@ export const Home = () => {
                 justifyContent="space-around"
                 alignItems="center"
             >
-                <Typography variant="h4">Lista Telefonica</Typography>
+                <ContactList>
+                    <Typography variant="h4">Lista Telefonica</Typography>
+                </ContactList>
             </Grid>
         </React.Fragment>
     );

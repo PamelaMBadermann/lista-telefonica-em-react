@@ -12,7 +12,6 @@ export const Register = () => {
                 alignItems="center"
             >
                 <Typography variant="h4">Adicionar Contato</Typography>
-                <ContactForm></ContactForm>
             </Grid>
         </React.Fragment>
     );

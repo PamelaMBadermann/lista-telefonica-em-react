@@ -33,7 +33,8 @@ function ContactForm(props) {
                 value={input}
                 onChange={handleChange}
             />
-            <Button variant="contained">Adicione um contato</Button>
+            {/* <Button variant="contained">Adicione um contato</Button> */}
+            <button>Adicione um contato</button>
         </FormStyle>
     );
 }

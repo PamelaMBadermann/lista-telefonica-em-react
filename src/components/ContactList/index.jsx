@@ -16,11 +16,43 @@ function ContactList() {
         console.log(...contacts);
     };
 
+    const updateContact = (contactId, newValue) => {
+        if (!newValue.text || /^\s*$/.test(newValue.text)) {
+            return;
+        }
+
+        setContacts((prev) =>
+            prev.map((item) => (item.id === contactId ? newValue : item))
+        );
+    };
+
+    const removeContact = (id) => {
+        const removeArr = [...contacts].filter((contact) => contact.id !== id);
+
+        setContacts(removeArr);
+    };
+
+    const completeContact = (id) => {
+        let updatedContacts = contacts.map((contact) => {
+            if (contact.id === id) {
+                contact.isComplete = !contact.isComplete;
+            }
+            return contact;
+        });
+
+        setContacts(updatedContacts);
+    };
+
     return (
         <div>
             <h1>Adicione um contato!</h1>
             <ContactForm onSubmit={addContact}></ContactForm>
-            <Contact contacts={contacts} completeContact={completeContact} />
+            <Contact
+                contacts={contacts}
+                completeContact={completeContact}
+                removeContact={removeContact}
+                updateContact={updateContact}
+            />
         </div>
     );
 }
